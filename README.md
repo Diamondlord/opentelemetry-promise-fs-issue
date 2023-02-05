@@ -1,30 +1,4 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
-
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
-
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+# Example of issue in "fs/promise" with OpenTelemetry
 
 ## Installation
 
@@ -35,39 +9,43 @@ $ npm install
 ## Running the app
 
 ```bash
-# development
-$ npm run start
+# without tracing
+$ ts-node ./src/main.ts
+[Nest] 80821  - 02/05/2023, 7:34:55 PM     LOG [NestFactory] Starting Nest application...
+# with tracing - it will fail
+$ ts-node --require './tracing.ts' ./src/main.ts
 
-# watch mode
-$ npm run start:dev
+no original function accessSync to wrap
+no original function appendFileSync to wrap
+no original function chmodSync to wrap
+no original function chownSync to wrap
+no original function copyFileSync to wrap
+no original function cpSync to wrap
+no original function existsSync to wrap
+no original function lchownSync to wrap
+no original function linkSync to wrap
+no original function lstatSync to wrap
+no original function lutimesSync to wrap
+no original function mkdirSync to wrap
+no original function mkdtempSync to wrap
+no original function opendirSync to wrap
+no original function openSync to wrap
+no original function readdirSync to wrap
+no original function readFileSync to wrap
+no original function readlinkSync to wrap
+no original function realpathSync to wrap
+no original function renameSync to wrap
+no original function rmdirSync to wrap
+no original function rmSync to wrap
+no original function statSync to wrap
+no original function symlinkSync to wrap
+no original function truncateSync to wrap
+no original function unlinkSync to wrap
+no original function utimesSync to wrap
+no original function writeFileSync to wrap
+no original function exists to wrap
+TypeError: Cannot read properties of undefined (reading 'access')
 
-# production mode
-$ npm run start:prod
-```
 
-## Test
 
-```bash
-# unit tests
-$ npm run test
 
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
